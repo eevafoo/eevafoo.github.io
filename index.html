@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Webpage</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #FEFBE7;
+            color: #1F2937; /* Claude's text color */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .lowercase {
+            text-transform: lowercase;
+        }
+        
+        .container {
+            width: 60%; /* Reduced from 80% to make content narrower */
+            max-width: 600px; /* Reduced from 800px */
+            margin: 0 auto;
+            padding: 20px;
+            border-left: 20px solid #FEFBE7; /* Thick left border - same as background */
+            border-right: 20px solid #FEFBE7; /* Thick right border - same as background */
+        }
+        
+        header {
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        nav {
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        nav a {
+            color: #992E24;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        section {
+            padding: 20px 0;
+            margin-bottom: 20px;
+            display: none; /* Hide sections by default */
+        }
+        
+        section.active {
+            display: block; /* Show only active section */
+        }
+        
+        h1, h2 {
+            color: #992E24;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Eeva Foo's Letter to Anthropic</h1>
+        </div>
+    </header>
+    
+    <nav class="lowercase">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+    </nav>
+    
+    <div class="container">
+        <section id="home">
+            <h2 class="lowercase">home</h2>
+            
+            <h3>Why I Want to Work at Anthropic by Eeva Foo</h3>
+            <p>I once read that you can do anything, you just need to go out there and find the longest lever you can. I see it as my duty to contribute, to the best of my ability, in ways which I believe will make the world better. I see Anthropic as my longest lever to do that.</p>
+            <p>Five years ago, I wrote a paper arguing that AI shouldn't replace human judges because it would be unsafe to put an AI model in that role. At the time, AI models were black boxes. We would not be able to trust their judgments, even if legally correct, if we could not understand how they worked. Fairness is felt—we need to be able to interpret their decisions for the judgment to feel fair, not only just. The trade-off of efficiency is necessary to uphold the emotional and ethical duty judges have to society. So, I argued that the only way we can consider replacing the human judge is to ensure that the AI models are trained and deployed safely, in alignment with fundamental values of society.</p>
+            <p>Now, Anthropic's imperative to build safe, interpretable models that align with societal goals make this possible. In this version of the future, perhaps AI models can replace human judges, and the trade-offs no longer relevant. We really can leverage machines far smarter than us if we understood them and diligently guided them in ways which better our society.</p>
+            <p>I feel deeply privileged to be part of this chapter in history, but I also think there are big strides to be made in shaping what the future looks like, and only if we go out there and find the longest lever we can.</p>
+            <p>My training in law, product, and early-stage startups puts me in a good position to develop Anthropic's vision in ways that balance between what is useful to users and beneficial to society. I am motivated to do it urgently and with rigor.</p>
+        </section>
+        
+        <section id="about">
+            <h2 class="lowercase">about</h2>
+            <p>i am Eeva Foo, a product person based in Brooklyn, NY.</p>
+            <p>this website was built entirely using Claude, and furnished with my own words and intentions.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p class="lowercase">&copy; 2025 built by claude</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple way to ensure page loads with a section visible
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set home section visible by default
+            document.getElementById('home').classList.add('active');
+            
+            // Add click events to navigation links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get section ID from href
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // Hide all sections
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Show target section
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
