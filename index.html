@@ -180,7 +180,28 @@
                     }
                 });
             });
+
+            // ADD THIS NEW CODE HERE
+            document.querySelectorAll('.section-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get section ID from href
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // Hide all sections
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Show target section
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                }
+            });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
